@@ -1,4 +1,5 @@
-﻿using Gyak_06.MnbServiceReference;
+﻿using Gyak_06.Entities;
+using Gyak_06.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,15 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Gyak_06
 {
     public partial class Form1 : Form
     {
-        
+        BindingList<RateData> rates = new BindingList<RateData>();
         public Form1()
         {
             InitializeComponent();
             getRates();
+            dataGridView1.DataSource = rates;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
