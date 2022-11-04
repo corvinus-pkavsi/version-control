@@ -6,19 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace gyak_6.Entities
+namespace gyak_6.Abstractions
 {
-   public class Ball : Label
-    {        
-        public Ball()
-        {            
+    public abstract class Toy : Label
+    {
+        public Toy()
+        {
             AutoSize = false;
             Width = 50;
             Height = Width;
-            Paint += Ball_Paint;
+            Paint += Toy_Paint;
         }
-    
-        private void Ball_Paint(object sender, PaintEventArgs e)
+
+        private void Toy_Paint(object sender, PaintEventArgs e)
         {
             DrawImage(e.Graphics);
         }
@@ -27,7 +27,7 @@ namespace gyak_6.Entities
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
-    
+
         public void MoveBall()
         {
             Left += 1;
